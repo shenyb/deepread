@@ -1,0 +1,41 @@
+application:
+    name: deepread
+    version: 1.0-SNAPSHOT
+# Server settings (ServerProperties, validate only if running in Application)
+server:
+    port: 8080
+    address: 127.0.0.1
+#spring
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+#    schema: classpath:/db/schema-h2.sql
+#    data: classpath:/db/data-h2.sql
+    url: jdbc:mysql://localhost:3306/deepread?characterSetResults=UTF8&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+    platform: mysql
+    initialize: true
+    continue-on-error: true
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  typeAliasesPackage: com.baomidou.springboot.entity
+  global-config:
+    id-type: 2
+    field-strategy: 2
+    auto-set-db-type: true
+    db-column-underline: true
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+#logging
+logging:
+  level: warn
+
+#spring:
+#    profiles:
+#        active: production

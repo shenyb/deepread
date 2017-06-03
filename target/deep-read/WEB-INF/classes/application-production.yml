@@ -1,0 +1,62 @@
+# spring data JPA/hibernate + mysql  database configuration
+spring:
+    profiles: production
+    datasource:
+        platform: mysql
+        #invoking the schema-''platform'.sql and data-"platfrom".sql in classpath to initialize the database when initialize=true
+        initialize: true
+        sqlScriptEncoding: UTF-8
+        name: dataSource
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/LIFESTYLE365_DB?characterSetResults=UTF8&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull
+        username: root
+        password: root
+        filters: stat
+        maxActive: 200
+        initialSize: 20
+        maxWait: 60000
+        minIdle: 3
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+        jpa:
+            database: MYSQL
+            hibernate:
+                #validate: The "validate" option will check if your mapping is consistent with your database. If not, it throws an error.
+                #update: update the schema.The "update" option will check if your mapping is consistent with your database. If not, it will update your database to make it consistent to your mapping.
+                #create: creates the schema, destroying previous data.
+                #create-drop: drop the schema at the end of the session.
+                #initialize database by @Entity anotation in domain object when ddl-auto's value is update or create or create-drop
+                ddl-auo: none
+                naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+            showSql: true
+    mvc:
+        view:
+            prefix: /templates/
+            suffix: .ftl
+    freemarker:
+        cache: false #正式部署到生产环境时改为true
+        request-context-attribute: request
+    jackson:
+        serialization:
+            INDENT_OUTPUT: true
+logging:
+    level:
+        org:
+            hibernate:
+                SQL: debug
+flyway:
+    enabled: false
+swagger:
+    title: LifeStyle365 Cloud Rest API'S docs for users
+    description: LifeStyle365 Cloud Rest API'S docs for users
+    version: v1
+    termsOfServiceUrl :
+

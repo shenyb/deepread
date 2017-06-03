@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: deep-read Maven Webapp
+Implementation-Version: 1.5.3.RELEASE
+Implementation-Vendor-Id: com.deepread
+Build-Jdk: 1.7.0_67
+Built-By: shenyb
+Created-By: IntelliJ IDEA
+Main-Class: ${start-class}
+

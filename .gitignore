@@ -1,0 +1,13 @@
+*.class
+.idea
+*.iml
+.classpath
+.project
+.springBeans
+.settings/
+target/
+*.lock
+*.DS_Store
+classes/
+rtmplive/rtmplive-innerservice/rtmplive-innerservice.properties
+saas-common/saas-commonService/saas-commonService.properties

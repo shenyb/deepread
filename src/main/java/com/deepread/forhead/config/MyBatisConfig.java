@@ -22,8 +22,6 @@ public class MyBatisConfig {
     public SqlSessionFactory sqlSessionFactoryBean() {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-        bean.setTypeAliasesPackage("com.deepread");
-
 //        //miemiedev开发的mybatis物理分页拦截器
 //        OffsetLimitInterceptor paginatorPlugin = new OffsetLimitInterceptor();
 //        paginatorPlugin.setDialectClass("com.github.miemiedev.mybatis.paginator.dialect.MySQLDialect");

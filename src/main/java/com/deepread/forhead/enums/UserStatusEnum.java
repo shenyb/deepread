@@ -7,15 +7,15 @@ package com.deepread.forhead.enums;
  * @Description :
  */
 public enum UserStatusEnum {
-    LOCKED("LOCKED","锁定"),NORMAL("NORMAL","正常");
-    private String type;
+    LOCKED(1,"锁定"),NORMAL(0,"正常");
+    private int type;
     private String desc;
-    UserStatusEnum(String type,String desc){
+    UserStatusEnum(int type,String desc){
         this.type=type;
         this.desc=desc;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 

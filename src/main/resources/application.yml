@@ -5,6 +5,32 @@ application:
 server:
     port: 8080
     address: 127.0.0.1
+#    spring.jpa.hibernate.ddl-auto=update
+#    spring.datasource.url=jdbc:mysql://localhost:3306/deepread
+#    spring.datasource.username=root
+#    spring.datasource.password=root
+spring:
+    jpa:
+      hibernate:
+        ddl-auto: update
+    datasource:
+        url: jdbc:mysql://localhost:3306/deepread
+        username: root
+        password: root
+    data:
+        mongodb:
+            uri: mongodb://localhost:27017/test
+    mvc:
+#        view:
+#            prefix: /jsp/
+#            suffix: .jsp
+    freemarker:
+        template-loader-path: /WEB-INF/view
+        cache: false #正式部署到生产环境时改为true
+        request-context-attribute: request
+        suffix: .html
+
+
 #spring
 #spring:
 #    profiles: production

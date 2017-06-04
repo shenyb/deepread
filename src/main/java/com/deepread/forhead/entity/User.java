@@ -1,44 +1,27 @@
 package com.deepread.forhead.entity;
 
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import java.util.Date;
-import com.baomidou.mybatisplus.enums.IdType;
-import com.baomidou.mybatisplus.activerecord.Model;
-import java.io.Serializable;
+import com.deepread.forhead.enums.*;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author Shenyanbin
- * @since 2017-06-03
- */
-public class User extends Model<User> {
+import javax.persistence.*;
+import java.util.*;
 
-    private static final long serialVersionUID = 1L;
-
-	@TableId(value="id", type= IdType.AUTO)
-	private Long id;
-	@TableField("nick_name")
-	private String nickName;
+@Entity // This tells Hibernate to make a table out of this class
+public class User {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer id;
+	@Column(length = 50,nullable = false,unique = true)
+    private String nickName;
+	@Column(length = 50,nullable = false,unique = true)
 	private String email;
+	@Column(length = 20)
 	private String mobile;
-	private String status;
-	@TableField("create_time")
+	@Column(length = 3,nullable = false)
+	private UserStatusEnum status;
+	@Column(nullable = false)
 	private Date createTime;
-	@TableField("update_time")
+	@Column(nullable = false)
 	private Date updateTime;
-
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getNickName() {
 		return nickName;
@@ -48,12 +31,12 @@ public class User extends Model<User> {
 		this.nickName = nickName;
 	}
 
-	public String getEmail() {
-		return email;
+	public UserStatusEnum getStatus() {
+		return status;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setStatus(UserStatusEnum status) {
+		this.status = status;
 	}
 
 	public String getMobile() {
@@ -62,14 +45,6 @@ public class User extends Model<User> {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 
 	public Date getCreateTime() {
@@ -88,9 +63,22 @@ public class User extends Model<User> {
 		this.updateTime = updateTime;
 	}
 
-	@Override
-	protected Serializable pkVal() {
-		return this.id;
+	public Integer getId() {
+		return id;
 	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 
 }
